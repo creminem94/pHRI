@@ -31,7 +31,7 @@ Dh = 50;
 Kh = 50;
 
 %env params
-Be = 10;%100;
+Be = 0;%100;
 Ke = 200;
 xe = 0.7;
 
@@ -40,14 +40,14 @@ A = 1;
 Fc = 0.5;
 Ts = 0.001;
 
-delayT = 1;
+delayT = 5;
 b = 1;
 tlcAlpha = 0.1;
 Hd = 1;
-beta = 0.5;
-Fip = 100;
-Hm_init = 30;
-Hs_init = 30;
+beta = 0.6;
+Fip = 10;
+Hm_init = 100;
+Hs_init = 100;
 
 open('simulink_models/tank_based_force_pos.slx');
 out = sim('simulink_models/tank_based_force_pos.slx', 10);

@@ -33,14 +33,14 @@ Kh = 50;
 %env params
 Be = 0;%100;
 Ke = 200;
-xe = 0.7;
+xe = 1.5;
 
 %input force
 A = 1;
 Fc = 0.5;
 Ts = 0.001;
 
-delayT = 1;
+delayT = 5;
 b = 1;
 % low pass filter
 Fip = 10;

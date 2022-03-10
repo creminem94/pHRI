@@ -38,11 +38,11 @@ A_int = 1;
 %env params
 Be = 0;%100;
 Ke = 200;
-xe = 1.5;
+xe = 0.7;
 
 Ts = 0.001;
 
-delayT = 1;
+delayT = 5;
 b = 1;
 Fip = 10;
 Fc = 0.5;
@@ -61,7 +61,7 @@ R = 1;
 Q_m = q_m*B*B';
 q_s = 10000000;
 Q_s = q_s*B*B';
-xe = 1.5;
+xe = 0.7;
 
 open('simulink_models/delay_force_pos_kalman.slx');
 out = sim('simulink_models/delay_force_pos_kalman.slx', 10);
