@@ -33,7 +33,7 @@ Kh = 50;
 %env params
 Be = 10;%100;
 Ke = 200;
-xe = 1.5;
+xe = 0.7;
 
 %input force
 A = 1;
