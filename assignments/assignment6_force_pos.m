@@ -16,8 +16,8 @@ Ds = 0; %10
 %slave robot controller 
 %for position-force channel the input of the controller is the error, not
 %the real velocity
-Bs = 80;%100;
-Ks = 100;%0;
+Bs = 100;%100;
+Ks = 80;%0;
 
 %inner controllers
 C3 = 1;
@@ -29,28 +29,24 @@ Bh_i = 1.5;
 Kh_i = 1;
 
 %operator controller
-Dh = 50;
-Kh = 50;
+Dh = 5;
+Kh = 2;
 
 %input force
 A_int = 1;
 
 %env params
-Be = 0;%100;
+Be = 10;%100;
 Ke = 200;
-xe = 0.7;
+xe = 1.5;
 
 Ts = 0.001;
 
-delayT = 5;
+delayT = 10;
 b = 1;
 Fip = 10;
 Fc = 0.5;
 
-open('simulink_models/delay_force_pos.slx');
-out = sim('simulink_models/delay_force_pos.slx', 10);
-
-%%
 A = [1 Ts
     0 1];
 B = [Ts^2/2;Ts];
@@ -61,7 +57,18 @@ R = 1;
 Q_m = q_m*B*B';
 q_s = 10000000;
 Q_s = q_s*B*B';
+posNoiseVariance = 0;
+forceNoiseVariance = 0;
+
+open('simulink_models/delay_force_pos.slx');
+sim('simulink_models/delay_force_pos.slx', 30);
+
+%% in contact
+xe = 0.7;
+sim('simulink_models/delay_force_pos.slx', 30);
+%% with noise
+posNoiseVariance = 0.00001;
+forceNoiseVariance = 0.00001;
 xe = 0.7;
 
-open('simulink_models/delay_force_pos_kalman.slx');
-out = sim('simulink_models/delay_force_pos_kalman.slx', 10);
+out = sim('simulink_models/delay_force_pos.slx', 30);
