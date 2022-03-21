@@ -6,8 +6,8 @@ Mm = 0.5;
 Dm = 0; %5
 
 %master robot controller
-Bm = 80;%0.8;
-Km = 100;%1;
+Bm = 80;
+Km = 100;
 
 %slave robot impedance
 Ms = 2;
@@ -17,9 +17,6 @@ Ds = 0; %10
 Bs = 80;%100;
 Ks = 100;%0;
 
-%inner controllers
-C3 = 1;
-C2 = 1;
 
 %operator impedance params
 Jh_i = 0;

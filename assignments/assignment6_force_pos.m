@@ -3,25 +3,15 @@ s = tf('s');
 
 %master robot impedance
 Mm = 0.5;
-Dm = 5; %5
-
-%master robot controller
-Bm = 0;%80;%0.8;
-Km = 0;%100;%1;
+Dm = 5;
 
 %slave robot impedance
 Ms = 2;
-Ds = 0; %10
+Ds = 0;
 
 %slave robot controller 
-%for position-force channel the input of the controller is the error, not
-%the real velocity
-Bs = 100;%100;
-Ks = 80;%0;
-
-%inner controllers
-C3 = 1;
-C2 = 1;
+Bs = 100;
+Ks = 80;
 
 %operator impedance params
 Jh_i = 0;
@@ -36,7 +26,7 @@ Kh = 2;
 A_int = 1;
 
 %env params
-Be = 10;%100;
+Be = 10;
 Ke = 200;
 xe = 1.5;
 

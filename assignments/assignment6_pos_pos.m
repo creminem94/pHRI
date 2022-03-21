@@ -6,20 +6,16 @@ Mm = 0.5;
 Dm = 0.1; %5
 
 %master robot controller
-Bm = 80;%0.8;
-Km = 100;%1;
+Bm = 80;
+Km = 100;
 
 %slave robot impedance
 Ms = 2;
-Ds = 0; %10
+Ds = 0;
 
 %slave robot controller (four time the mass of master, so we multiply the controller)
-Bs = 80*4;%100;
-Ks = 100*4;%0;
-
-%inner controllers
-C3 = 1;
-C2 = 1;
+Bs = 80*4;
+Ks = 100*4;
 
 %operator impedance params
 Jh_i = 0;
@@ -31,7 +27,7 @@ Dh = 5;
 Kh = 2;
 
 %env params
-Be = 10;%100;
+Be = 10;
 Ke = 200;
 xe = 1.5;
 
