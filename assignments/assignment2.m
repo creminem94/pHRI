@@ -9,8 +9,8 @@ Mm = 0.5;
 Dm = 0;
 
 %master robot controller
-Bm = 8;%0.8;
-Km = 10;%1;
+Bm = 8;
+Km = 10;
 
 %slave robot impedance
 Ms = 2;
@@ -36,7 +36,7 @@ Dh = 50;
 Kh = 50;
 
 %env params
-Be = 0;%100;
+Be = 0;
 Ke = 200;
 xe = 1.5;
 
@@ -46,17 +46,6 @@ A = 1;
 Fc = 0.5;
 Ts = 0.001;
 
-% Kalman
-Ak = [ 1 Ts 
-      0  1 ];
-Ck = [1 0 ];
-Bk = [Ts^2/2; Ts];
-
-x0k = [0 0];
-
-qk = 0.01;
-Rk = qk*0.0001;
-Qk = qk*Bk*Bk';
 open('simulink_models/four_channel_bilateral_teleoperation.slx');
 sim('simulink_models/four_channel_bilateral_teleoperation.slx', 10);
 

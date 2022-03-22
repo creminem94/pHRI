@@ -8,8 +8,6 @@ vel = vel_s;
 
 q = 0.01;
 R = q*0.001;
-% R = std(pos);
-% q = R*10000;
 A = [1 Ts
     0 1];
 B = [Ts^2/2;Ts];
@@ -24,7 +22,7 @@ Kinf = Pinf*C'*inv(C*Pinf*C'+R);
 
 dataPoints = kalmanFilter(pos, x0, P0, A, C, Q, R);
 dataPoints = kalmanSmoother(dataPoints, A);
-% dataPointsPred = kalmanPredictor(pos, x0, P0, A, C, Q, R);
+% dataPointsPred = kalmanPredictor(pos, x0, P0, A, C, Q, R); %same result
 figure;
 eulerV = (pos(2:N)-pos(1:N-1))/Ts;
 plot(time(1:N-1),lowPassFilter(eulerV,1, Ts),'LineWidth',2);
@@ -48,8 +46,6 @@ A = [1 Ts Ts^2/2
 C = [1 0 0];
 
 B = [Ts^3/6;Ts^2/2;Ts];
-% R = std(pos);
-% q = R*10000;
 Q = q*B*B';
 
 x0 = [0;0;0];

@@ -48,19 +48,6 @@ A = 1;
 Fc = 0.5;
 Ts = 0.001;
 
-% Kalman
-
-Ak = [ 1 Ts 
-      0  1 ];
-Ck = [1 0 ];
-Bk = [Ts^2/2; Ts];
-
-x0k = [0 0];
-
-qk = 10000;
-Rk = 1;
-Qk = qk*Bk*Bk';
-
 open('simulink_models/four_channel_bilateral_teleoperation.slx');
 out = sim('simulink_models/four_channel_bilateral_teleoperation.slx', 10);
 
@@ -71,7 +58,4 @@ sim('simulink_models/four_channel_bilateral_teleoperation.slx', 10);
 %% What happens if invZm =1/(Mm*s+Dm),invZs=1/(Ms*s+Ds) with Dm=5 and Ds=10
 Dm = 5;
 Ds = 10;
-qk = 10000;
-Rk = 1;
-Qk = qk*Bk*Bk';
 out = sim('simulink_models/four_channel_bilateral_teleoperation.slx',10);
